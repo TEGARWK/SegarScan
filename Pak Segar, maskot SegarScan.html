@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Pak Segar, maskot SegarScan</title>
+<style>
+:root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);
+--bg:#eef6ea;--ink:#16341f;--card:#ffffff;--line:#cfe3c8;--accent:#2e7d32}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1d14;--ink:#e6f4e2;--card:#16281b;--line:#2a4431;--accent:#7bd389}}
+:root[data-theme="dark"]{--bg:#0f1d14;--ink:#e6f4e2;--card:#16281b;--line:#2a4431;--accent:#7bd389}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:"Nunito","Trebuchet MS",system-ui,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+h1{font-size:clamp(1.6rem,5vw,2.4rem);margin:0 0 4px;font-weight:800;text-align:center}
+.sub{margin:0 0 14px;opacity:.75;text-align:center}
+.stage{width:min(720px,100%);background:var(--card);border:2px solid var(--line);border-radius:28px;overflow:hidden}
+svg{display:block;width:100%;height:auto}
+.say{margin:14px 0 6px;min-height:2.6em;font-weight:700;text-align:center;max-width:520px}
+.btns{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+button{font:inherit;font-weight:800;border:2px solid var(--line);background:var(--card);color:var(--ink);padding:10px 18px;border-radius:999px;cursor:pointer}
+button[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:#fff}
+button:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.hint{font-size:.85rem;opacity:.65;margin-top:10px;text-align:center}
+</style>
+</head>
+<body>
+<h1>Pak Segar</h1>
+<p class="sub">Petugas sortir SegarScan yang memeriksa buah satu per satu</p>
+
+<div class="stage">
+<svg id="svg" viewBox="0 0 600 380" role="img" aria-label="Petugas mengambil buah dari keranjang, mengangkatnya sambil memeriksa, lalu mengembalikannya">
+<defs>
+  <g id="ap">
+    <path d="M0 -48 Q-4 -75 14 -85" stroke="#6d4c41" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path d="M12 -78 Q40 -98 58 -72 Q34 -56 12 -78Z" fill="#43a047"/>
+    <path d="M0 -48 C-30 -64 -72 -42 -66 4 C-62 44 -30 66 0 56 C30 66 62 44 66 4 C72 -42 30 -64 0 -48Z" fill="currentColor"/>
+    <ellipse cx="-30" cy="-12" rx="12" ry="22" fill="#fff" opacity=".28" transform="rotate(20 -30 -12)"/>
+  </g>
+</defs>
+  <ellipse cx="270" cy="352" rx="170" ry="14" fill="#000" opacity=".1"/>
+
+  <!-- kaki -->
+  <rect x="190" y="296" width="28" height="48" rx="9" fill="#37474f"/>
+  <rect x="222" y="296" width="28" height="48" rx="9" fill="#37474f"/>
+  <rect x="183" y="336" width="40" height="14" rx="7" fill="#263238"/>
+  <rect x="217" y="336" width="40" height="14" rx="7" fill="#263238"/>
+
+  <!-- leher + badan -->
+  <rect x="206" y="158" width="28" height="30" rx="8" fill="#e5a574"/>
+  <rect x="162" y="176" width="116" height="130" rx="34" fill="#43a047"/>
+  <ellipse cx="220" cy="178" rx="17" ry="9" fill="#e5a574"/>
+  <path d="M196 200 L203 180 M244 200 L237 180" stroke="#f5f1e6" stroke-width="7" stroke-linecap="round"/>
+  <rect x="188" y="198" width="64" height="106" rx="12" fill="#f5f1e6"/>
+  <path d="M220 232 q-12 -4 -14 -16 q12 0 14 16 q2 -12 14 -14 q-2 12 -14 14Z" fill="#43a047"/>
+  <rect x="203" y="256" width="34" height="26" rx="6" fill="none" stroke="#d6cfba" stroke-width="3"/>
+
+  <!-- tangan kiri (diam) -->
+  <path d="M168 200 L160 248" stroke="#43a047" stroke-width="26" stroke-linecap="round"/>
+  <path d="M160 248 L162 284" stroke="#f2b98a" stroke-width="17" stroke-linecap="round"/>
+  <circle cx="162" cy="290" r="13" fill="#f2b98a"/>
+
+  <!-- kepala -->
+  <g id="head"><g transform="translate(-20 0)">
+    <ellipse cx="240" cy="118" rx="54" ry="58" fill="#f2b98a"/>
+    <ellipse cx="187" cy="122" rx="9" ry="13" fill="#e5a574"/>
+    <ellipse cx="293" cy="122" rx="9" ry="13" fill="#e5a574"/>
+    <path d="M186 98 Q186 52 240 50 Q294 52 294 98 Q240 84 186 98Z" fill="#2e7d32"/>
+    <path d="M262 92 Q300 84 318 98 Q290 106 262 100Z" fill="#256427"/>
+    <circle cx="240" cy="72" r="14" fill="#fff" opacity=".9"/>
+    <path d="M233 72 l5 5 l9 -10" stroke="#2e7d32" stroke-width="4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="219" cy="120" r="12" fill="#fff"/><circle cx="261" cy="120" r="12" fill="#fff"/>
+    <circle id="pL" cx="219" cy="120" r="6" fill="#16341f"/><circle id="pR" cx="261" cy="120" r="6" fill="#16341f"/>
+    <rect id="lidL" x="205" y="106" width="28" height="28" rx="14" fill="#f2b98a" style="transform-origin:219px 120px;transform:scaleY(0)"/>
+    <rect id="lidR" x="247" y="106" width="28" height="28" rx="14" fill="#f2b98a" style="transform-origin:261px 120px;transform:scaleY(0)"/>
+    <path id="browL" d="" stroke="#4e342e" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <path id="browR" d="" stroke="#4e342e" stroke-width="4" stroke-linecap="round" fill="none"/>
+    <ellipse cx="203" cy="142" rx="9" ry="6" fill="#ff8a80" opacity=".5"/>
+    <ellipse cx="277" cy="142" rx="9" ry="6" fill="#ff8a80" opacity=".5"/>
+    <path id="tear" d="M213 138 q-5 9 0 12 q5 -3 0 -12Z" fill="#6ec6ff" opacity="0"/>
+    <path id="mouth" d="" stroke="#6d2f2f" stroke-width="4.5" stroke-linecap="round" fill="none"/>
+  </g></g>
+
+  <!-- keranjang (belakang) + buah isi -->
+  <rect x="302" y="292" width="88" height="20" fill="#8d6232"/>
+  <use href="#ap" color="#e53935" transform="translate(322 296) scale(.42)"/>
+  <use href="#ap" color="#ef8f3a" transform="translate(346 290) scale(.42)"/>
+  <use href="#ap" color="#6d4c41" transform="translate(370 297) scale(.42)"/>
+  <circle cx="373" cy="292" r="3" fill="#3e2723"/><circle cx="366" cy="298" r="2.5" fill="#3e2723"/>
+
+  <!-- tangan kanan + buah di genggaman -->
+  <path id="armU" stroke="#43a047" stroke-width="26" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <path id="armF" stroke="#f2b98a" stroke-width="17" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+  <g id="fruit"><g transform="scale(.44)">
+    <path d="M0 -48 Q-4 -75 14 -85" stroke="#6d4c41" stroke-width="7" stroke-linecap="round" fill="none"/>
+    <path id="leaf" d="M12 -78 Q40 -98 58 -72 Q34 -56 12 -78Z" fill="#43a047"/>
+    <path id="apple" d="M0 -48 C-30 -64 -72 -42 -66 4 C-62 44 -30 66 0 56 C30 66 62 44 66 4 C72 -42 30 -64 0 -48Z" fill="#e53935"/>
+    <ellipse cx="-30" cy="-12" rx="12" ry="22" fill="#fff" opacity=".28" transform="rotate(20 -30 -12)"/>
+    <g id="spots" opacity="0"><circle cx="20" cy="10" r="11" fill="#3e2723"/><circle cx="-18" cy="26" r="8" fill="#3e2723"/><circle cx="34" cy="-14" r="6" fill="#3e2723"/></g>
+  </g></g>
+  <circle id="hand" r="12" fill="#f2b98a"/>
+
+  <!-- keranjang (depan) -->
+  <path d="M298 304 H394 L386 346 Q344 352 306 346Z" fill="#a1763f"/>
+  <path d="M302 320 H390 M304 334 H388" stroke="#8d6232" stroke-width="3"/>
+  <path d="M322 306 V348 M346 306 V350 M370 306 V348" stroke="#8d6232" stroke-width="3"/>
+  <rect x="294" y="298" width="104" height="12" rx="6" fill="#8d6232"/>
+</svg>
+</div>
+
+<p class="say" id="say" aria-live="polite"></p>
+<div class="btns" role="group" aria-label="Kualitas buah yang diambil">
+  <button data-q="acak" aria-pressed="true">Acak</button>
+  <button data-q="bagus" aria-pressed="false">Bagus</button>
+  <button data-q="cukup" aria-pressed="false">Cukup</button>
+  <button data-q="busuk" aria-pressed="false">Busuk</button>
+</div>
+<p class="hint">Setiap putaran, Pak Segar mengambil buah baru dari keranjang. Ketuk kepalanya untuk menyapa.</p>
+
+<script>
+const $=id=>document.getElementById(id);
+const lerp=(a,b,k)=>a+(b-a)*k, ease=t=>t<.5?2*t*t:1-Math.pow(-2*t+2,2)/2;
+const calm=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const FACE={
+  netral:{mouth:'M226 152 Q240 159 254 152',b:[0,0]},
+  bagus:{fill:'#e53935',spots:0,mouth:'M224 150 Q240 168 256 150',b:[0,0],
+    say:['Mulus dan segar! Ini layak jual.','Kinclong! Nilainya bagus.']},
+  cukup:{fill:'#ef8f3a',spots:.35,mouth:'M226 156 L254 156',b:[0,0],
+    say:['Hmm, mulai kusam. Jual cepat ya.','Masih oke, tapi jangan disimpan lama.']},
+  busuk:{fill:'#6d4c41',spots:1,mouth:'M226 160 Q240 150 254 160',b:[5,-6],tear:1,
+    say:['Yah, sudah busuk... pisahkan dari yang lain ya.','Sayang sekali, yang ini tidak bisa dijual.']}
+};
+let face='',mode='acak',q='bagus',prevQ='',cyc=-1,spoken=false,sayNow='';
+function setFace(k){
+  if(face===k)return;face=k;const d=FACE[k];
+  $('mouth').setAttribute('d',d.mouth);$('tear').setAttribute('opacity',d.tear?1:0);
+  $('browL').setAttribute('d',`M205 ${100+d.b[0]} Q219 94 233 ${100+d.b[1]}`);
+  $('browR').setAttribute('d',`M247 ${100+d.b[1]} Q261 94 275 ${100+d.b[0]}`);
+}
+function say(t){if(sayNow!==t){sayNow=t;$('say').textContent=t}}
+function pick(){
+  const list=['bagus','cukup','busuk'].filter(x=>x!==prevQ);
+  q=mode==='acak'?list[Math.floor(Math.random()*list.length)]:mode;prevQ=q;
+  const d=FACE[q];
+  $('apple').setAttribute('fill',d.fill);$('spots').style.opacity=d.spots;
+  $('leaf').setAttribute('fill',q==='busuk'?'#8d6e63':'#43a047');
+}
+document.querySelectorAll('[data-q]').forEach(b=>b.onclick=()=>{
+  mode=b.dataset.q;prevQ='';
+  document.querySelectorAll('[data-q]').forEach(x=>x.setAttribute('aria-pressed',x===b));
+  cyc=-1;t0=performance.now();
+});
+
+// lengan 2 ruas (inverse kinematics sederhana)
+const SH={x:268,y:196}, L=63, B={x:340,y:296}, D={x:335,y:142}, T=5600;
+function arm(tx,ty){
+  const dx=tx-SH.x,dy=ty-SH.y,Dst=Math.hypot(dx,dy),dd=Math.min(Dst,2*L-.01);
+  const h=Math.sqrt(L*L-dd*dd/4),ux=dx/Dst,uy=dy/Dst;
+  const mx=SH.x+ux*dd/2,my=SH.y+uy*dd/2;
+  const ex=mx-uy*h, ey=my+ux*h;
+  const hx=SH.x+ux*dd, hy=SH.y+uy*dd;
+  $('armU').setAttribute('d',`M${SH.x} ${SH.y} L${ex} ${ey}`);
+  $('armF').setAttribute('d',`M${ex} ${ey} L${hx} ${hy}`);
+  $('hand').setAttribute('cx',hx);$('hand').setAttribute('cy',hy);
+  return[hx,hy];
+}
+
+let t0=performance.now(),ex=0,ey=0,tilt=0;
+function frame(now){
+  const el=now-t0,c=Math.floor(el/T),p=(el%T)/T;
+  if(c!==cyc){cyc=c;pick();spoken=false}
+  let tx=B.x,ty=B.y,s=1,wob=0;
+  if(p<.10){s=ease(p/.10)}
+  else if(p<.34){const k=ease((p-.10)/.24);tx=lerp(B.x,D.x,k);ty=lerp(B.y,D.y,k)}
+  else if(p<.72){const u=(p-.34)/.38;tx=D.x;ty=D.y+Math.sin(u*Math.PI*5)*(calm?5:16);wob=Math.sin(u*Math.PI*5)*6}
+  else if(p<.92){const k=ease((p-.72)/.20);tx=lerp(D.x,B.x,k);ty=lerp(D.y,B.y,k)}
+  else{s=1-ease((p-.92)/.08)}
+  const [hx,hy]=arm(tx,ty);
+  const fx=hx,fy=hy-20+(1-s)*14;
+  $('fruit').setAttribute('transform',`translate(${fx} ${fy}) rotate(${wob}) scale(${Math.max(s,.001)})`);
+
+  // ekspresi + ucapan
+  if(p>.34&&p<.90){setFace(q);if(!spoken){spoken=true;const m=FACE[q].say;say(m[Math.floor(Math.random()*m.length)])}}
+  else{setFace('netral');say(p<.34?(p<.10?'Mengambil buah dari keranjang...':'Diperiksa dulu...'):'Dikembalikan ke keranjang...')}
+
+  // mata + kepala mengikuti buah
+  const dx=fx-220,dy=fy-120,d=Math.hypot(dx,dy)||1;
+  ex+=(dx/d*5-ex)*.25;ey+=(dy/d*5-ey)*.25;
+  [['L',219],['R',261]].forEach(([n,cx])=>{$('p'+n).setAttribute('cx',cx+ex);$('p'+n).setAttribute('cy',120+ey)});
+  tilt+=(Math.min(8,Math.max(0,(fx-220)/14))-tilt)*.12;
+  $('head').setAttribute('transform',`rotate(${tilt} 220 175) translate(0 ${Math.max(-3,Math.min(3,(fy-120)/-50))})`);
+  requestAnimationFrame(frame);
+}
+function blink(){
+  ['lidL','lidR'].forEach(id=>{const e=$(id);e.style.transition='transform .08s';e.style.transform='scaleY(1)';setTimeout(()=>e.style.transform='scaleY(0)',120)});
+  setTimeout(blink,2200+Math.random()*3000);
+}
+$('head').style.cursor='pointer';
+$('head').addEventListener('click',()=>{say('Halo! Aku Pak Segar. Buahmu kuperiksa satu-satu.');spoken=true});
+setFace('netral');requestAnimationFrame(frame);setTimeout(blink,1500);
+</script>
+</body>
+</html>
